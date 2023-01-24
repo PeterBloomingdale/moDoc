@@ -1,0 +1,198 @@
+---
+title: "Model Documentation"
+subtitle: "PBPK/QSP Model of drug X in Y disease"
+author: Peter Bloomingdale
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+format:
+    pdf:
+        toc: true
+        number-sections: true
+---
+
+{{< pagebreak >}}
+
+## Model Objectives
+
+* Clearly state the scientific question the model is intending to address 
+    * *What dose level is required to reach the desired level of target engagement?*
+* Outline the specific objectives of the model
+    a. *Characterize the pharmacokinetics of drug X in preclinical species and human*
+    b. *Determine the dose-response relationship for drug X and biomarker Y*
+    c. *Perform a clinical trial simulation*
+
+Note: The scientific question and model objectives should be clearly defined and specific. This section should provide the reader with a clear understanding of why the model was developed and what it is intended to accomplish.
+
+{{< pagebreak >}}
+
+## Model Development
+
+* Provide any relevant background information for model development
+* Provide the granularity/scope of model development
+    * *We used in vitro data to mode the cellular/molecular processes in disease Y tissue*
+    * *We linked changes in biomarker Y to clinical endpoint Z*
+* Describe the sources of data used to develop the model, literature or experimental data
+    * *In vitro data was obtained from in house experiments*
+    * *Clincial data was digitized from the literature in {reference}*
+* Provide a step-wise description of the model development process, including what software or programming languages were used. Was the model developed new or was a previous model used as a starting point.
+
+Note: The Model Development section should provide a detailed description of how the model was developed, including the methods and data used. The Structure, Parameters, and Assumptions subsections should provide specific information about the model structure, parameter values, and assumptions made during model development. This information should be sufficient for a reader to understand the model, how it was developed, and hopefully enable its reproducibility and usability.
+
+### Structure
+
+* Describe the overall structure of the model, including compartments and pathways
+* Provide a diagram or illustration of the model structure
+    * *Command to diplay an image: `![Model Diagram Caption](ModelDiagram.png)`*
+* Write and explain mathematical equations and algorithms
+
+*Write model equations using the following syntax:*
+
+\begin{equation} 
+C(t) = C_{0} \cdot e^{-k \cdot t} 
+\end{equation}
+
+\begin{equation}
+\frac{dC}{dt} = -k \cdot t 
+\end{equation} 
+
+Note that you can use an online LaTeX editor to help with the equation syntax, such as: [LaTeX Editor](https://latexeditor.lagrida.com/).
+
+### Parameters
+
+* List and define all model parameters and provide a summary in the table.
+* Describe how parameter values were determined and any calculations used.
+    1. *Clearance (CL) was obtained from experimental data...* 
+    2. *Volume of distribution in the central compartment (V1) was obtained from literature*
+    3. *Distributional clearance (CLD) was obtained from experimental data...*
+    4. *Volume of distribution in the peripheral compartment (V2) was assumed*
+* Provide references and sources, such as literature, experimental data, or assumptions.
+* Indicate any assumptions or simplifications made in determining parameter values.
+
+```{r, echo=FALSE}
+library(knitr)
+data <- data.frame(Parameter = c("CL", "V1", "CLD", "V2"),
+                   Units = c(1, 5, 2.5, 20),
+                   Value = c("L/h","L","L/h","L"),
+                   Reference = c("Experiment", "Literature", "Experiment", "Assumed"))
+kable(data, caption = "Example Parameter Table")
+```
+
+
+### Assumptions
+
+* List and explain any assumptions made in the model development, such as simplifications of biological processes or neglect of certain variables
+* Describe the impact of these assumptions on the model predictions and overall accuracy
+* Explain any uncertainty or variability in the model predictions due to these assumptions
+* Outline any major challenges or limitations encountered during model development and how they were addressed
+* Describe model assumptions using a table and the recommended columns (Assumption, Justification, Sensitivity Analysis, Uncertainty, and Source)
+    * **Assumption**: This column should describe the assumption in a clear and concise manner.
+    * **Justification**: This column should explain the reasoning behind the assumption. It could include any relevant research, literature or expert opinion that supports the assumption.
+    * **Sensitivity**: This column should describe how the assumption affects the model output and how sensitive the model is to changes in the assumption. It could include any sensitivity analysis performed on the model, such as a range of values for the assumption or a list of alternative assumptions that were considered.
+    * **Uncertainty**: This column should describe the level of uncertainty associated with the assumption. This could include any uncertainty analysis that was performed on the assumption, such as a range of possible values or a probability distribution.
+    * **Source**: This column should cite the sources of the assumptions, such as publications, regulations or expert opinions.
+
+Note: Sensitivity analysis focuses on how changes in an assumption affect the model output, while uncertainty analysis focuses on the level of confidence in the assumption.
+
+
+```{r, echo=FALSE}
+data <- data.frame(Assumption = c("Assumption 1", "Assumption 2"),
+                   Justification = c("Justification 1", "Justification 2"),
+                   Sensitivity = c("Sensitivity 1", "Sensitivity 2"),
+                   Uncertainty = c("Uncertainty 1", "Uncertainty 2"),
+                   Source = c("Source 1", "Source 2"))
+kable(data, caption = "Example Assumption Table")
+```
+
+
+{{< pagebreak >}}
+
+
+## Model Validation
+
+* Describe the scope of the model validation and methods/data used to validate the model, such as comparison to experimental data or other models.
+    * *The model was validated using clinical data in patients with disease Y. Patients were at this stage of the disease with the following range/distribution of demographics (age, sex, race, etc.). The model was validated for doses ranging between A and B.*
+* Indicate any areas where the model may not be suitable for certain applications, such as dose range, species, or disease states.
+* Provide any relevant statistical measures, such as $R^2$ or root mean square error (RMSE)
+* Provide any relevant figures or tables to support the validation of the model
+* Provide any references or citations for the validation data. 
+* For models that have extensive validation data from multiple sources, you could consider summarizing this data in a table.
+
+Note: The Model Validation section should provide a clear and thorough assessment of the model's performance and accuracy. This section should include any relevant statistical measures and figures to support the validation, as well as a description of the scope of the validation. The reader should understand the limitations and uncertainties of the model predictions and under what conditions the model is suitable to use.
+
+{{< pagebreak >}}
+
+## Model Application
+
+* Provide examples of specific applications or case studies where the model has been used or can be used
+* Describe the inputs and outputs of the model, and the type of information that can be obtained from the model
+* Provide any relevant figures or tables to illustrate the model's predictions or results
+* Outline any limitations or considerations for the model's use, such as the range of concentrations or conditions that the model can accurately predict
+
+Note: The Model Application section should provide a clear and comprehensive description of how the model can be used and what kind of information can be obtained from it. This section should include examples of specific applications, inputs and outputs, as well as any limitations or considerations for the model's use. The reader should understand the potential use and the information that can be obtained from the model, and any limitations or future developments of the model. This section provides a comprehensive description of primary and supplementary analyses performed.
+
+{{< pagebreak >}}
+
+## Model Accessibility and Useability
+
+* Provide information on how the model can be accessed, such as the website or repository where the model can be downloaded. 
+    * *The model can be obtained from the following GitHub link...*
+* Provide any necessary information for running the model, such as the software and version required.
+    * *The model was developed in R version X.XX. The primary R packages used were A v1.0, B v2.0, and C v3.0.*
+* Describe any licensing or usage restrictions for the model.
+* Explain the format of the data inputs required for the model and share any example datasets.
+* Explain the format of the data outputs provided by the model.
+* Describe any post-processing or data visualization tools that can be used to analyze the model outputs.
+
+Note: Accessibility refers to the ease at which a model can be obtained and setup for use, whereas usability refers to the ease at which the model can be understood and used.
+
+{{< pagebreak >}}
+
+## Additional Considerations
+
+Certain models could consider the following additional sections if relevant:
+
+### Model Credibility
+
+Describe the model's authors, development team and their qualifications.
+Provide any relevant publications, presentations or patents that the authors have on the model.
+Describe any external review that the model has undergone and the outcome of the review.
+
+### Model Maintenance
+
+Describe any ongoing maintenance or updating schedule for the model.
+Explain any methods for submitting bug reports or suggestions for model improvements.
+Describe any support or help resources available for users of the model.
+
+### Model Version
+
+This section could include version number of the model, the date of the last update, and a brief summary of any changes that were made in that version. This would allow users to keep track of the different versions of the model and to easily identify which version of the model they are using.
+
+Additionally, providing information on the version history of the model can help users to understand how the model has evolved over time, and to identify which version of the model is most appropriate for their specific needs. This can be particularly important when the model is frequently updated or when different versions of the model are used for different applications.
+
+It's worth noting that versioning and documentation is important for reproducibility, allowing to trace the model's development, testing, and validation, and could be supportive information for regulatory submission of the model.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
