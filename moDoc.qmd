@@ -13,7 +13,7 @@ format:
 
 ## Model Objectives
 
-* Clearly state the scientific question the model is intending to address 
+* Clearly state the scientific question the model is intending to address  
     * *What dose level is required to reach the desired level of target engagement?*
 * Outline the specific objectives of the model
     a. *Characterize the pharmacokinetics of drug X in preclinical species and human*
