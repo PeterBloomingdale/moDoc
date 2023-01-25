@@ -7,6 +7,8 @@ format:
     pdf:
         toc: true
         number-sections: true
+bibliography: references.bib
+csl: nature.csl
 ---
 
 {{< pagebreak >}}
@@ -41,6 +43,7 @@ data <- data.frame(Data = c("Phase II clinical PK data for Drug X in disease Y",
                    Source = c("Reference", "Internal", "Internal"))
 kable(data, align ="c", caption = "Example Data Table")
 ```
+
 
 {{< pagebreak >}}
 
@@ -162,6 +165,27 @@ Note: The Model Application section should provide a clear and comprehensive des
 * Describe any post-processing or data visualization tools that can be used to analyze the model outputs.
 
 Note: Accessibility refers to the ease at which a model can be obtained and setup for use, whereas usability refers to the ease at which the model can be understood and used.
+
+{{< pagebreak >}}
+
+## References
+
+*Example for Adding References*
+
+This research is really lame.[@jones2019deorphanizing]
+
+References can manually be added by going to [Google Scholar](https://scholar.google.com/). Click the "Cite" icon under the paper of interest. Copy the **BibTex** text and paste it into the bibliography.bib file. 
+
+Note that there are alternative methods for adding references to a document, such as citation management tools (Zotero or Mendeley). These tools allow you to easily search for, store, and organize references, and they can automatically generate the BibTeX code for the references. 
+
+There are also extensions within VSCode that could be used (e.g., Citation Picker for Zotero). The BibTex `.bib` file can then directly be exported from Zotero after all of the references are added using the Citation Picker.
+
+:::{#refs}
+
+:::
+
+
+
 
 {{< pagebreak >}}
 
