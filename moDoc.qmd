@@ -24,6 +24,26 @@ Note: The scientific question and model objectives should be clearly defined and
 
 {{< pagebreak >}}
 
+## Data
+
+* Description of the data sources used to develop the model and how they were used. This could include information such as the type of data (e.g., clinical trial data, observational data, etc.), the number of samples, and the population characteristics.
+    * *Phase II clincial PK data for Drug X in disease Y was obtained from the literature and is available in supplementary materials as `data1.csv`. This dataset has A patients and B samples. Patient demographics are...*
+* Information on how the data was obtained, preprocessed, and cleaned before being used for model development. 
+    * *Missing data was handled by...*
+    * *BLQ data was handled by...*
+    * *Data was digitzed using the software...*
+* Summarizing the data used into a table is recommended. The data table could include additional columns such as sample size, population characteristics, and data handling information. However, it might be best to have this information described in text and only display the summary of the dataset in the table along with the filename and source to reduce the size of the table.
+
+```{r, echo=FALSE}
+library(knitr)
+data <- data.frame(Data = c("Phase II clinical PK data for Drug X in disease Y", "In vitro data for Drug X inhibiting biomarker Y", "Phase III clincial PD Data"),
+                   Filename = c("data1.csv", "data2.csv", "private"),
+                   Source = c("Reference", "Internal", "Internal"))
+kable(data, align ="c", caption = "Example Data Table")
+```
+
+{{< pagebreak >}}
+
 ## Model Development
 
 * Provide any relevant background information for model development
@@ -68,7 +88,6 @@ Note that you can use an online LaTeX editor to help with the equation syntax, s
 * Indicate any assumptions or simplifications made in determining parameter values.
 
 ```{r, echo=FALSE}
-library(knitr)
 data <- data.frame(Parameter = c("CL", "V1", "CLD", "V2"),
                    Units = c(1, 5, 2.5, 20),
                    Value = c("L/h","L","L/h","L"),
@@ -84,10 +103,10 @@ kable(data, caption = "Example Parameter Table")
 * Explain any uncertainty or variability in the model predictions due to these assumptions
 * Outline any major challenges or limitations encountered during model development and how they were addressed
 * Describe model assumptions using a table and the recommended columns (Assumption, Justification, Sensitivity Analysis, Uncertainty, and Source)
-    * **Assumption**: This column should describe the assumption in a clear and concise manner.
-    * **Justification**: This column should explain the reasoning behind the assumption. It could include any relevant research, literature or expert opinion that supports the assumption.
-    * **Sensitivity**: This column should describe how the assumption affects the model output and how sensitive the model is to changes in the assumption. It could include any sensitivity analysis performed on the model, such as a range of values for the assumption or a list of alternative assumptions that were considered.
-    * **Uncertainty**: This column should describe the level of uncertainty associated with the assumption. This could include any uncertainty analysis that was performed on the assumption, such as a range of possible values or a probability distribution.
+    * **Assumption**: Describe the assumption in a clear and concise manner.
+    * **Justification**: Explain the reasoning behind the assumption. Include relevant research, literature, or expert opinions supporting the assumption.
+    * **Sensitivity**: Describe how the assumption affects the model output and how sensitive the model is to changes in the assumption. It could include any sensitivity analysis performed on the model, such as a range of values for the assumption or a list of alternative assumptions that were considered.
+    * **Uncertainty**: Describe the level of uncertainty associated with the assumption. This could include any uncertainty analysis that was performed on the assumption, such as a range of possible values or a probability distribution.
     * **Source**: This column should cite the sources of the assumptions, such as publications, regulations or expert opinions.
 
 Note: Sensitivity analysis focuses on how changes in an assumption affect the model output, while uncertainty analysis focuses on the level of confidence in the assumption.
